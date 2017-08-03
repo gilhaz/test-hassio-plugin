@@ -12,7 +12,7 @@ if [ ! -d /config/custom_components/media_player/ ]; then
 	cp $TTS_BLUETOOTH_SPEAKER_PATH /config/scripts/tts_bluetooth_speaker.py
 fi
 
-MAC_ADDRESS=$(jq --raw-output ".mac" $CONFIG_PATH)
+MAC_ADDRESS=$(jq --raw-output ".mac_address" $CONFIG_PATH)
 
 echo "Launching bluetoothctl…"
 bluetoothctl <<EOF
