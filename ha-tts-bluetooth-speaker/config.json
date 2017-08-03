@@ -4,7 +4,6 @@
   "slug": "bluetooth-speaker",
   "description": "TTS bluetooth speaker",
   "url": "https://github.com/gilhaz/test-hassio-plugin",
-  "image": "hub/{arch}-test"
   "image": "gilhaz/test-hassio-plugin-{arch}",
   "startup": "after",
   "boot": "auto",
@@ -12,7 +11,7 @@
     "mac_address": ""
   },
   "schema": {
-    "plugins": ["str"]
+    "mac_address": ["str"]
   },
   "map": ["config:rw"],
   "host_network": true
