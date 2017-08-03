@@ -7,10 +7,14 @@ if [ -f /var/run/dbus.pid ]; then
 fi
 
 if [ ! -d /config/custom_components/media_player/ ]; then
-	echo "Creating the homebridge config directory"
+	echo "Creating the custom components, media player directory"
 	mkdir -p /config/custom_components/media_player
 	cp $TTS_BLUETOOTH_SPEAKER_PATH /config/scripts/tts_bluetooth_speaker.py
 fi
 
+MAC_ADDRESS=$(jq --raw-output ".mac" $CONFIG_PATH)
+
 echo "Launching bluetoothctl…"
-bluetoothctl
+bluetoothctl <<EOF
+connect $MAC_ADDRESS
+EOF
